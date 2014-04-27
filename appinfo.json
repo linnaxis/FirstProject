@@ -1,0 +1,31 @@
+{
+    "companyName": "linnaxis@gmail.com",
+    "appKeys": {},
+    "capabilities": [
+        ""
+    ],
+    "resources": {
+        "media": [
+            {
+                "name": "FONT_MULI_REG_30",
+                "trackingAdjust": -1,
+                "file": "fonts/Muli-Regular.ttf",
+                "type": "font"
+            },
+            {
+                "name": "FONT_MULI_LIGHT_20",
+                "trackingAdjust": -1,
+                "file": "fonts/Muli-Light.ttf",
+                "type": "font"
+            }
+        ]
+    },
+    "uuid": "456e5643-3456-4121-bf25-cf12ee65bfb2",
+    "versionCode": 1,
+    "longName": "FirstProject",
+    "shortName": "FirstProject",
+    "versionLabel": "1.0",
+    "watchapp": {
+        "watchface": false
+    }
+}
