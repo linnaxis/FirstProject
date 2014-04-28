@@ -10,13 +10,13 @@
         "media": [
             {
                 "trackingAdjust": -1,
-                "name": "FONT_MULI_REG_35",
+                "name": "FONT_MULI_REG_20",
                 "type": "font",
                 "file": "fonts/Muli-Regular.ttf"
             },
             {
                 "trackingAdjust": -1,
-                "name": "FONT_MULI_REG_40",
+                "name": "FONT_MULI_REG_50",
                 "type": "font",
                 "file": "fonts/Muli-Regular.ttf"
             },
@@ -25,18 +25,6 @@
                 "name": "FONT_MULI_REG_30",
                 "type": "font",
                 "file": "fonts/Muli-Regular.ttf"
-            },
-            {
-                "trackingAdjust": -1,
-                "name": "FONT_MULI_LIGHT_30",
-                "type": "font",
-                "file": "fonts/Muli-Light.ttf"
-            },
-            {
-                "trackingAdjust": -1,
-                "name": "FONT_MULI_LIGHT_40",
-                "type": "font",
-                "file": "fonts/Muli-Light.ttf"
             }
         ]
     },

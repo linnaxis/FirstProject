@@ -1,9 +1,7 @@
 #include <pebble.h>
  
 Window *window;
-TextLayer *time_text_layer;
-TextLayer *date_text_layer;
-TextLayer *day_text_layer;
+TextLayer *time_text_layer, *meridian_text_layer, *date_text_layer, *day_text_layer;
 char time_buffer[] = "00:00";
 char meridian_buffer[] = "AM";
 char day_buffer[] = "Wednesday";
@@ -17,11 +15,12 @@ void tick_handler(struct tm *tick_time, TimeUnits units_changed)
   //Here we will update the watchface display
   //Format the buffer string using tick_time as the time source
   strftime(time_buffer, sizeof(time_buffer), "%l:%M", tick_time);
-  strftime(time_buffer, sizeof(meridian_buffer), "%P", tick_time);
+  strftime(meridian_buffer, sizeof(meridian_buffer), "%P", tick_time);
   strftime(day_buffer, sizeof(day_buffer), "%a", tick_time);
   strftime(date_buffer, sizeof(date_buffer), "%b %e", tick_time);
+  
   text_layer_set_text(time_text_layer, time_buffer);
-  text_layer_set_text(time_text_layer, meridian_buffer);
+  text_layer_set_text(meridian_text_layer, meridian_buffer);
   text_layer_set_text(day_text_layer, day_buffer);
   text_layer_set_text(date_text_layer, date_buffer);
   
@@ -78,29 +77,29 @@ void tick_handler(struct tm *tick_time, TimeUnits units_changed)
 void window_load(Window *window)
 {
   //Load font
-  ResHandle time_font_handle = resource_get_handle(RESOURCE_ID_FONT_MULI_REG_35);
-  time_text_layer = text_layer_create(GRect(0, 40, 123, 35));
+  ResHandle time_font_handle = resource_get_handle(RESOURCE_ID_FONT_MULI_REG_50);
+  time_text_layer = text_layer_create(GRect(0, 30, 110, 55));
   text_layer_set_background_color(time_text_layer, GColorClear);
   text_layer_set_text_color(time_text_layer, GColorWhite);
   text_layer_set_text_alignment(time_text_layer, GTextAlignmentLeft);
   text_layer_set_font(time_text_layer, fonts_load_custom_font(time_font_handle));
   
   ResHandle meridian_font_handle = resource_get_handle(RESOURCE_ID_FONT_MULI_REG_20);
-  meridian_text_layer = text_layer_create(GRect(0, 125, 20, 35));
+  meridian_text_layer = text_layer_create(GRect(110, 60, 40, 35));
   text_layer_set_background_color(meridian_text_layer, GColorClear);
   text_layer_set_text_color(meridian_text_layer, GColorWhite);
   text_layer_set_text_alignment(meridian_text_layer, GTextAlignmentLeft);
   text_layer_set_font(meridian_text_layer, fonts_load_custom_font(meridian_font_handle));
   
   ResHandle day_font_handle = resource_get_handle(RESOURCE_ID_FONT_MULI_REG_30);
-  day_text_layer = text_layer_create(GRect(0, 80, 132, 35));
+  day_text_layer = text_layer_create(GRect(0, 90, 132, 35));
   text_layer_set_background_color(day_text_layer, GColorClear);
   text_layer_set_text_color(day_text_layer, GColorWhite);
   text_layer_set_text_alignment(day_text_layer, GTextAlignmentLeft);
   text_layer_set_font(day_text_layer, fonts_load_custom_font(day_font_handle));
   
   ResHandle date_font_handle = resource_get_handle(RESOURCE_ID_FONT_MULI_REG_30);
-  date_text_layer = text_layer_create(GRect(0, 105, 132, 35));
+  date_text_layer = text_layer_create(GRect(50, 115, 90, 35));
   text_layer_set_background_color(date_text_layer, GColorClear);
   text_layer_set_text_color(date_text_layer, GColorWhite);
   text_layer_set_text_alignment(date_text_layer, GTextAlignmentRight);
